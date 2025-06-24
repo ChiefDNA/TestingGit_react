@@ -75,12 +75,12 @@ body, #root {
     flex-wrap: wrap;
     overflow-y: scroll;
     margin-left: 0px;
-    padding-left: 100px;
     margin-left: 0px;
     padding-top: 16px;
 }
 #paragraphs h2 {
     width: 100%;
+    padding: 10px;
 }
 
 #paragraphs p {
@@ -94,8 +94,7 @@ body, #root {
     border: 1px solid rgba(138, 165, 42, 0.288);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-    margin-right: 5px;
+    margin: 15px auto 5px;
     display: flex;
     position: relative;
 }
