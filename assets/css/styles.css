@@ -16,9 +16,9 @@ body, #root {
     align-content: center;
     height: 100vh;
     background-color: #00000014;
-    border-top-left-radius: 26px;
-    border-bottom-left-radius: 31px;
-    margin: 2px 0 2px 2px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 3px;
+    margin: 0px;
     transition: width 1s ease;
 }
 #sidePanel.responsive {
@@ -27,7 +27,7 @@ body, #root {
 }
 #sidePanel.responsive-focused {
     position: fixed;
-    left: 2px;
+    left: 0px;
     background-color: #f1f1f1;
     z-index: 1;
 }
@@ -184,7 +184,7 @@ a.icon h3 span {
 }
 .nav-group.my-account {
     position: absolute;
-    bottom: 60px;
+    bottom: 70px;
     left: 5px;
 }
 .responsive .nav-group.my-account {
@@ -396,6 +396,7 @@ tbody.table-entries tr:nth-child(even) {
 }
 .form-item {
     height: 25%;
+    min-width: 320px; 
     width: 100%;
     position: relative;
 }
@@ -490,13 +491,11 @@ tbody.table-entries tr:nth-child(even) {
     border-bottom: 2px solid #45c12f5c !important;
 }
 .form-item.short {
-    min-width: 320px; 
     max-width: 615px; 
     width: 38%; 
     display: inline-block;
 }
 .form-item.long {
-    min-width: 320px; 
     max-width: 963px; 
     width:60%; 
     margin:0px;
