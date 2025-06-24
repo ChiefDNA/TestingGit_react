@@ -184,7 +184,7 @@ a.icon h3 span {
 }
 .nav-group.my-account {
     position: absolute;
-    bottom: 10px;
+    bottom: 60px;
     left: 5px;
 }
 .responsive .nav-group.my-account {
@@ -279,7 +279,6 @@ a.icon h3 span {
     margin: auto;
     height: 84%;
     padding-top:5px;
-    font-size: larger;
 }
 .row h2 {
     font-size: 185%;
@@ -298,12 +297,14 @@ a.icon h3 span {
     margin-top: 10px !important;
     width: 420px;
     height: 95%;
+    min-width: 320px;
     border-radius: 2px;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.02);
 }
 .form-boundary.login {
     max-height: 781px; 
-    min-width: 555px;
+    width: 60%;
+    
 }
 .form-boundary.add-material, .register .form-boundary {
     /* max-height: 706px; */
@@ -489,15 +490,16 @@ tbody.table-entries tr:nth-child(even) {
     border-bottom: 2px solid #45c12f5c !important;
 }
 .form-item.short {
-    min-width: 100px; 
+    min-width: 320px; 
     max-width: 615px; 
     width: 38%; 
     display: inline-block;
 }
 .form-item.long {
-    min-width: 100px; 
+    min-width: 320px; 
     max-width: 963px; 
-    width:60%; margin:0px;
+    width:60%; 
+    margin:0px;
     display: inline-block;
 }
 .form-item.lbl {
