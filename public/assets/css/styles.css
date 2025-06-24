@@ -75,27 +75,26 @@ body, #root {
     flex-wrap: wrap;
     overflow-y: scroll;
     margin-left: 0px;
-    padding-left: 100px;
     margin-left: 0px;
     padding-top: 16px;
 }
 #paragraphs h2 {
     width: 100%;
+    padding: 10px;
 }
 
 #paragraphs p {
-    max-height: 139px;
+    max-height: 199px;
     min-height: 94px;
     width: 40%;
-    min-width: 374px;
+    min-width: 310px;
     background-color: #fff;
     padding: 0px 3px 6px 0px;
     margin: 2px ;
     border: 1px solid rgba(138, 165, 42, 0.288);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-    margin-right: 5px;
+    margin: 15px auto 5px;
     display: flex;
     position: relative;
 }

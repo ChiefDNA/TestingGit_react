@@ -35,6 +35,7 @@ function App() {
       <Section> 
         <Routes>
           <Route path="/" element={<IndexPage />}/>
+          <Route path="/TestingGit_react" element={<IndexPage />}/>
           <Route path="/Materials" element={<Materials user={user}/>} />
           <Route path="/Register" element={<Registration replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} />} />
           <Route path="/Login" element={<Login replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} setUser={setUser} />} />
