@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { parseHtmlDocumentToReact } from "../hooks/parseHtmlDocumentToReact";
 
 
 const IndexPage = () => {
+    const [htmlContent, setHtmlContent] = useState(null);
+
+    useEffect(() => {
+        fetch("https://docs.google.com/document/d/e/2PACX-1vTbdAkrlsuCnFKA2L0jDodU0wT7F4jkykK03Ak2ZwXXIAIAYQT1nAgGUI1vKCHHcIa8H3zSkdnedy7Z/pub")
+        .then(res => res.text())
+        .then(html => {
+            const reactElement = parseHtmlDocumentToReact(html);
+            setHtmlContent(reactElement);
+        })
+    },[]);
 
     return (
         <div id="mainPanel">
+            <div className="doc-content">
+                {htmlContent ? htmlContent : <p> Loading...</p>}
+            </div>
             <div id="paragraphs">
                 <h2>This index file explains the paragraphs of this <a href="https://docs.google.com/document/d/1otNipuD-PJ0DfebQUgoEiLYHUaPlCTCww7WfZbVcZWY/edit?usp=sharing">Document</a></h2>
                 <p> The First paragraph talks about what a Version Control System is and its use in recorvering projects</p>

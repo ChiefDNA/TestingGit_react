@@ -1,0 +1,283 @@
+.doc-content { 
+    text-align: left;
+}
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+
+.c10 {
+    -webkit-text-decoration-skip: none;
+    color: #0c2995;
+    text-decoration: underline;
+    vertical-align: baseline;
+    justify-content: center;
+    display: flex;
+    font-size: 22pt;
+    font-style: oblique;
+}
+
+.c0 {
+    padding-top: 12pt;
+    text-indent: 1pt;
+    padding-bottom: 12pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c8 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 11pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.c6 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 11pt;
+    font-family: "Arial";
+    font-style: italic
+}
+
+.c1 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+}
+
+.c4 {
+    margin-left: 108pt;
+    padding-top: 12pt;
+    padding-bottom: 12pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c18 {
+    padding-top: 24pt;
+    padding-bottom: 6pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c5 {
+    padding-top: 12pt;
+    padding-bottom: 12pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c7 {
+    color: #000000;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 23pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.c19 {
+    color: #000000;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 11pt;
+    font-family: "Arial"
+}
+
+.c16 {
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip: none;
+    color: #1155cc;
+    text-decoration: underline
+}
+
+.c17 {
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip: none;
+    text-decoration: underline
+}
+
+.c13 {
+    background-color: #ffffff;
+    max-width: 468pt;
+    padding: 72pt 72pt 72pt 72pt
+}
+
+.c3 {
+    color: #0b52d9;
+    text-decoration: underline;
+}
+
+.c9 {
+    font-size: 7pt
+}
+
+.c11 {
+    margin-left: 90pt
+}
+
+.c12 {
+    font-style: italic
+}
+
+.c14 {
+    margin-left: 72pt
+}
+
+p.c2 {
+    font-weight: lighter;
+    margin: 23px 15px 0;
+    text-align: left;
+    padding: 5px;
+    color: #000000;
+    font-size: larger;
+    display: block;
+    font-family: "Arial";
+}
+
+.c15 {
+    font-weight: 400
+}
+
+.title {
+    padding-top: 0pt;
+    color: #000000;
+    font-size: 26pt;
+    padding-bottom: 3pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.subtitle {
+    padding-top: 0pt;
+    color: #666666;
+    font-size: 15pt;
+    padding-bottom: 16pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+li {
+    color: #000000;
+    font-size: large;
+    font-family: "Arial"
+}
+
+p {
+}
+
+h1 {
+    padding-top: 20pt;
+    color: #000000;
+    font-size: 20pt;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h2 {
+    padding-top: 18pt;
+    color: #000000;
+    font-size: larger;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h3 {
+    padding-top: 16pt;
+    color: #434343;
+    font-size: larger;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h4 {
+    padding-top: 14pt;
+    color: #666666;
+    font-size: larger;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h5 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h6 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    font-style: italic;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c2 {
+    text-indent: 41px;
+}
+
+.c2:has( img ) {
+    margin-top: 0px;
+}
+
+
+p:has(.c1[text~='Examples:']) + .c2 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}

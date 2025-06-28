@@ -108,6 +108,20 @@ p {
     display: flex;
     position: relative;
 }
+iframe {
+    width: 100%;
+    height: 100%;
+}
+iframe div.doc-content {
+    max-width: none;
+
+}
+iframe div.doc-content p {
+    font-size:larger !important;
+}
+div.doc-content span {
+    font-size: inherit;
+}
 .no-display:visited {
     color: #e4e4dd;
     /* display: none !important; */

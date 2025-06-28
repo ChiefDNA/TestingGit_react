@@ -1,0 +1,251 @@
+<!DOCTYPE html><html><head><title>Git as a Version control Notes</title><link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico"><meta name="referrer" content="origin"><script nonce="JM-hOJolgIPhuQ_IO8BQaA">
+        var DOCS_timing = {};
+        var DOCS_drawing_load = {};
+        var DOCS_drawing_decode = {};
+
+        function _DOCS_record_fn(id) {
+          if (window.performance && window.performance.now) {
+            DOCS_drawing_load[id] = performance.now();
+            const imgEl = document.getElementById(id);
+            if (imgEl && imgEl.decode) {
+              imgEl.decode().then(() => {
+                DOCS_drawing_decode[id] = performance.now();
+                if (typeof DOCS_notifyDrawingDecode === 'function') {
+                  DOCS_notifyDrawingDecode(id);
+                }
+              });
+            }
+          }
+
+          if (typeof DOCS_notifyDrawingLoad === 'function') {
+            DOCS_notifyDrawingLoad(id);
+          }
+        }
+
+        function DOCS_record_drawing_load(id) {
+          const imgEl = document.getElementById(id);
+          if (imgEl.complete) {
+            _DOCS_record_fn(id);
+          }
+          imgEl.onload = function() {
+            _DOCS_record_fn(id);
+          }
+        }
+
+        document.documentElement.addEventListener(
+          'load',
+          function(event) {
+            if (!event || !event.target) {
+              return;
+            }
+            const target = event.target;
+
+            if (target.tagName == 'IMG' &&  target.id && target.id.startsWith('ed.')) {
+              DOCS_record_drawing_load(target.id);
+            }
+          },
+          // Captures load events in the DOM because they do not bubble.
+          /* useCapture= */ true
+        );
+      </script><style nonce="431vpNAYEFGd_tnP1nwPgQ">
+      @import url("https://fonts.googleapis.com/css?family=Google+Sans");
+      @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+      body {
+        font-family: Roboto, arial, sans, sans-serif;
+        margin: 0;
+      }
+
+      iframe {
+        border: 0;
+        frameborder: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      #banners {
+        align-items: center;
+        background: white;
+        display: block;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+      }
+
+      #banners #publish-banner {
+        background-color: #e8f0fe;
+        border-bottom: 1px #ccc solid;
+        color: #202124;
+        display: flex;
+        flex: 1 1 0%;
+        height: 60px;
+        width: 100%;
+      }
+
+      #publish-banner-icon {
+        display: flex;
+        fill: #1967d2;
+        margin: auto 20px;
+      }
+
+      #publish-banner-text {
+        flex-grow: 1;
+        margin: auto 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #publish-banner-buttons {
+        margin: auto 25px auto 0;
+        white-space: nowrap;
+      }
+
+      #publish-banner-buttons span {
+        align-self: center;
+        background-color: inherit;
+        border: none;
+        font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+        margin: 0 16px 0 32px;
+      }
+
+      #publish-banner-buttons a {
+        color: #1967d2;
+        cursor: pointer;
+        font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        text-decoration: none;
+      }
+
+      #banners #title-banner {
+        background: white;
+        border-bottom: 1px #ccc solid;
+        display: flex;
+        flex: 1 1 0%;
+        height: 60px;
+        width: 100%;
+      }
+
+      #banners #title-banner #title {
+        flex-grow: 1;
+        font-family: 'Google Sans';
+        font-size: large;
+        margin: auto 0 auto 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 70%;
+      }
+
+      #banners #title-banner #interval {
+        margin: auto 25px auto 0;
+        font-family: Roboto;
+        font-size: small;;
+      }
+
+      #footer {
+        background: #f0f0f0;
+        border-bottom: 1px #ccc solid;
+        bottom: 0;
+        font-family: Roboto;
+        font-size: small;
+        padding: 10px 10px;
+        position: fixed;
+        text-align: center;
+        width: 100%;
+      }
+
+      @media only screen and (max-device-width: 800px) {
+        #banners #title-banner {
+          border-bottom-width: 5px;
+          height: auto;
+          display: block;
+        }
+
+        #banners #title-banner #title {
+          font-size: 3em;
+          margin: auto 0 auto 20px;
+          width: 90%;
+        }
+
+        #banners #title-banner #interval {
+          font-size: 1.5em;
+          margin: 10px 0 auto 25px;
+        }
+
+        #footer {
+          font-size: 2em;
+        }
+      }
+
+      .dash {
+        padding: 0 6px;
+      }
+
+    
+        #contents {
+          padding: 100px 20% 50px 20%;
+        }
+
+        @media only screen and (max-device-width: 800px) {
+          #contents {
+            padding: 150px 5% 80px;
+          }
+        }
+      </style></head><body><div id="banners"><div id="publish-banner"><span id="publish-banner-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></span><div id="publish-banner-text">Published using Google Docs</div><div id="publish-banner-buttons"><span><a href="https://drive.google.com/abuse?id=AKkXjoxB42wr49VJWWKkd33FvrbLqxjtzygqofCdTzFPhMnBrHZ0_64qzx0z13YmozBJir77C97rbro5mP_ubWs:0&amp;docurl=https://docs.google.com/document/d/e/2PACX-1vTbdAkrlsuCnFKA2L0jDodU0wT7F4jkykK03Ak2ZwXXIAIAYQT1nAgGUI1vKCHHcIa8H3zSkdnedy7Z/pub">Report abuse</a></span><span><a target="_blank" title="Learn more" href="https://support.google.com/docs/answer/183965">Learn more</a></span></div></div><div id="title-banner"><div id="title">Git as a Version control Notes</div><div id="interval"><span>Updated automatically every 5 minutes</span></div></div></div><div id="contents"><style type="text/css">ol{margin:0;padding:0}table td,table th{padding:0}.c10{-webkit-text-decoration-skip:none;color:#000000;font-weight:400;text-decoration:underline;vertical-align:baseline;text-decoration-skip-ink:none;font-size:11pt;font-family:"Arial";font-style:normal}.c12{margin-left:108pt;padding-top:12pt;padding-bottom:12pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c13{margin-left:72pt;padding-top:12pt;padding-bottom:12pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c0{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:italic}.c18{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left;height:11pt}.c2{padding-top:12pt;text-indent:1pt;padding-bottom:12pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c1{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c6{margin-left:90pt;padding-top:12pt;padding-bottom:12pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c17{color:#000000;text-decoration:none;vertical-align:baseline;font-size:23pt;font-family:"Arial";font-style:normal}.c20{padding-top:24pt;padding-bottom:6pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c15{padding-top:12pt;padding-bottom:12pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c11{color:#000000;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c9{color:#000000;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial"}.c19{text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;color:#1155cc;text-decoration:underline}.c5{text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;font-weight:700;text-decoration:underline}.c14{background-color:#ffffff;max-width:468pt;padding:72pt 72pt 72pt 72pt}.c3{font-weight:700;font-style:italic}.c4{color:inherit;text-decoration:inherit}.c8{font-size:7pt}.c7{font-weight:700}.c16{font-style:italic}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style><div class="c14 doc-content"><h1 class="c20" id="h.kzefng3jkz8n"><span class="c7 c17">Git as a Version control Notes</span></h1><p class="c2"><span class="c1">A version control system (VCS) tracks the history of changes as people and teams collaborate on projects together. -- As developers make changes to the project, any earlier version of the project can be recovered at any time. It gives an insight to which changes were made, by who at what time and as to why they were made.</span></p><p class="c2"><span class="c1">Git is a distributed version control system where every developer has a full copy of the project history unlike the once popular centralized Version control system which needed constant connection to a central repository. Descriptively, Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.</span></p><p class="c2"><span class="c1">A Repository (Git project) encompasses the entire collection of files and folders associated with a project along with each of the file’s revision history as commits.</span></p><p class="c2"><span>References are a user-friendly representation of hashes used to navigate between versions/commits and objects hence use of the references </span><span class="c7">branches, HEAD, </span><span>and </span><span class="c7">tags.</span><span> A </span><span class="c7">branch</span><span> represents an independent line of development (commit). Branches serve as an abstraction for the edit/stage/commit process, -- </span><span class="c7">also, </span><span>a branch is a pointer to a commit -- the default being the master. The </span><span class="c7">HEAD</span><span> reference tells us which branch we are currently working on while </span><span class="c7">a tag</span><span class="c1"> reference is immutable and is always linked to the same commit to be able to always remember a moment in time.</span></p><p class="c2"><span class="c1">A good practice of using Git is to create a copy of the develop branch and work within the copy while never pushing anything into the production branch directly.</span></p><p class="c2"><span class="c7">Internally,</span><span> Git uses the git</span><span><a class="c4" href="https://www.google.com/url?q=https://brilliant.org/wiki/secure-hashing-algorithms/%23sha-1&amp;sa=D&amp;source=editors&amp;ust=1751020129930006&amp;usg=AOvVaw32ehIzuNHiOErSgSJlZicS"> </a></span><span class="c19"><a class="c4" href="https://www.google.com/url?q=https://brilliant.org/wiki/secure-hashing-algorithms/%23sha-1&amp;sa=D&amp;source=editors&amp;ust=1751020129930302&amp;usg=AOvVaw0SONhaTBEtbInlepXSGxB6">SHA-1 algorithm</a></span><span> to generate a hashkey of stored values which it uses to identify </span><span class="c7">objects</span><span>. Git generates SHA-1 hash for its three types of objects which are </span><span class="c7">blobs, trees </span><span>and </span><span class="c7">commits </span><span>and persists the contents zipped into the repository. </span><span class="c7">A</span><span> </span><span class="c7">tree</span><span> object in git contains permissions, object type, object hash and filename for each file/subdirectory. The tree points to blobs, or to other trees to create a hierarchical structure. </span><span class="c7">A</span><span> </span><span class="c7">Blob</span><span> is a contraction of “binary large objects” and holds files data but does not contain any metadata about the file or even its name. It represents each version of the file. A blob object is the content of a file and nothing more. </span><span class="c7">A</span><span> </span><span class="c7">commit</span><span class="c1"> points to a tree object that captures in a snapshot of the entire state of the repository at a given point in time.</span></p><p class="c2"><span class="c5">Graphical internal file structure</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 138.67px;"><img alt="" src="https://lh7-rt.googleusercontent.com/docsd/ANYlcfBSfDhPzjjh43QHwa3y7mWyIJkOdNZ5W9Or4mWqo2sWL-4l2FYeaDQqLPf7F-uDS3sfPnZV6ojPWZTetGvdKuO-4QdMpqMWNc1hmh4tmpwjQMTyfqV__7L3yZTj8rrT5bg0hQ1sZ9NwnRRD" style="width: 624.00px; height: 138.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p><p class="c2"><span class="c1">When dealing with multiple branches, the blob references the common files between the new commit and the parent commit while the tree references the changed files in the new commit.</span></p><p class="c15"><span>                    </span><span class="c5">Graphical internal structure of multiple branches</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 290.67px;"><img alt="" src="https://lh7-rt.googleusercontent.com/docsd/ANYlcfBzxtNWROs-7FdZlSycaxw00CSdyXiHYkfUW18V-0ccTFeKwxgBzt0kCyP3ZHtz5LLA4N9505ui-nzIok5zUF9nN9FUYh9jfVkf0T7iQh17PXjCfw_xCeIRaTD7u9c8sEI3LoTwTwT9z-s3FDM" style="width: 624.00px; height: 290.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p><p class="c2"><span>To create a new branch locally, switch into the main branch (or the branch you would like to branch from) using </span><span class="c3">git checkout branch-name</span><span class="c16"> </span><span>Enter, and on the next line enter again the command </span><span class="c3">git checkout -b new-branch-name</span><span class="c0">.</span></p><p class="c15"><span>The origin keyword in git is a short representation of the remote URL hence </span><span class="c3">git push origin master </span><span>is equivalent to </span><span class="c3 c9">git push remote-repository-url.git your-branch-name.</span></p><p class="c15"><span class="c1">A pull Request (PR) is a way to alert a repo’s owner that you want to make some changes to their code. It allows them to review the code and make sure it looks good before putting your changes on the primary branch.</span></p><p class="c15"><span class="c7">                    Git rebase: </span><span>this command allows on to easily change a series of commits and modify the history of one’s repositories like reorder, edit and squash commits together, </span><span class="c7">However, </span><span class="c1">it is considered bad practice to rebase commits after pushing to a repository because it complicates work for everyone else using the repository. Examples:</span></p><p class="c12"><span>1.</span><span class="c8">       </span><span class="c16">git rebase –interactive other-branch-name </span><span class="c1">:This command rebases all the commits between other-branch-name and the current branch.</span></p><p class="c12"><span>2.</span><span class="c8">       </span><span class="c16">git rebase –interactive  HEAD~7</span><span class="c1">  :This command allows you to rebase the last few commits in your current branch.</span></p><p class="c6"><span class="c1">These two commands open an interactive text editor like terminal.</span></p><p class="c13"><span class="c10">While rebasing, six command are available which are:</span></p><p class="c6"><span>1.</span><span class="c8">       </span><span class="c0">pick : This includes a commit and its arrangement’s order during  rebasing changes the order of the commits. Non-included commit lines should be deleted.</span></p><p class="c6"><span>2.</span><span class="c8">       </span><span class="c0"> reword : With similarity to pick, here one is given a chance to change the commit message with changes made not affecting the commit.</span></p><p class="c6"><span>3.</span><span class="c8">       </span><span class="c0">edit : This provides more options to the commit than reword like amending (add or change) commits, make more commits, split larger commits to small ones and remove erroneous changes made in a commit.</span></p><p class="c6"><span>4.</span><span class="c8">       </span><span class="c0">squash :This allows you to combine two or more commits into a single commit which is above it  in a form of merging giving a chance to name a new commit message.</span></p><p class="c6"><span>5.</span><span class="c8">       </span><span class="c0">fixup :Similar to squash, the commit message  used is of the one above it while the one to be merged ‘s is discarded.</span></p><p class="c6"><span>6.</span><span class="c8">       </span><span class="c0">exec :This lets you  run arbitrary shell commands against a commit.</span></p><p class="c15"><span class="c1"> </span></p><p class="c18"><span class="c1"></span></p></div></div><script nonce="JM-hOJolgIPhuQ_IO8BQaA">function _F_toggles_initialize(a){(typeof globalThis!=="undefined"?globalThis:typeof self!=="undefined"?self:this)._F_toggles=a||[]}_F_toggles_initialize([]);
+var k,aa=typeof Object.create=="function"?Object.create:function(a){function b(){}b.prototype=a;return new b},ba=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
+function ca(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("a");}var da=ca(this);function l(a,b){if(b)a:{var c=da;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&b!=null&&ba(c,a,{configurable:!0,writable:!0,value:b})}}var ea;
+if(typeof Object.setPrototypeOf=="function")ea=Object.setPrototypeOf;else{var fa;a:{var ha={a:!0},ia={};try{ia.__proto__=ha;fa=ia.a;break a}catch(a){}fa=!1}ea=fa?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError("b`"+a);return a}:null}var ja=ea;
+function m(a,b){a.prototype=aa(b.prototype);a.prototype.constructor=a;if(ja)ja(a,b);else for(var c in b)if(c!="prototype")if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.o=b.prototype}
+l("Symbol",function(a){function b(f){if(this instanceof b)throw new TypeError("c");return new c(d+(f||"")+"_"+e++,f)}function c(f,g){this.g=f;ba(this,"description",{configurable:!0,writable:!0,value:g})}if(a)return a;c.prototype.toString=function(){return this.g};var d="jscomp_symbol_"+(Math.random()*1E9>>>0)+"_",e=0;return b});l("globalThis",function(a){return a||da});l("Object.is",function(a){return a?a:function(b,c){return b===c?b!==0||1/b===1/c:b!==b&&c!==c}});
+l("Symbol.dispose",function(a){return a?a:Symbol("f")});l("Array.prototype.includes",function(a){return a?a:function(b,c){var d=this;d instanceof String&&(d=String(d));var e=d.length;c=c||0;for(c<0&&(c=Math.max(c+e,0));c<e;c++){var f=d[c];if(f===b||Object.is(f,b))return!0}return!1}});l("String.prototype.includes",function(a){return a?a:function(b,c){if(this==null)throw new TypeError("d`includes");if(b instanceof RegExp)throw new TypeError("e`includes");return this.indexOf(b,c||0)!==-1}});
+l("String.fromCodePoint",function(a){return a?a:function(b){for(var c="",d=0;d<arguments.length;d++){var e=Number(arguments[d]);if(e<0||e>1114111||e!==Math.floor(e))throw new RangeError("g`"+e);e<=65535?c+=String.fromCharCode(e):(e-=65536,c+=String.fromCharCode(e>>>10&1023|55296),c+=String.fromCharCode(e&1023|56320))}return c}});
+l("Array.prototype.find",function(a){return a?a:function(b,c){a:{var d=this;d instanceof String&&(d=String(d));for(var e=d.length,f=0;f<e;f++){var g=d[f];if(b.call(c,g,f,d)){b=g;break a}}b=void 0}return b}});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+var n=this||self;function ka(a){a:{var b=["WIZ_global_data","oxN3nb"];for(var c=n,d=0;d<b.length;d++)if(c=c[b[d]],c==null){b=null;break a}b=c}a=b&&b[a];return a!=null?a:!1}var la=n._F_toggles||[];function ma(a){var b=typeof a;return b=="object"&&a!=null||b=="function"}function na(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var d=c.slice();d.push.apply(d,arguments);return a.apply(this,d)}}
+function oa(a,b){function c(){}c.prototype=b.prototype;a.o=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.H=function(d,e,f){for(var g=Array(arguments.length-2),h=2;h<arguments.length;h++)g[h-2]=arguments[h];return b.prototype[e].apply(d,g)}};Object.create(null);function q(){}q.prototype.equals=function(a){return pa(this,a)};q.prototype.l=function(){return this.j||(Object.defineProperties(this,{j:{value:qa=qa+1|0,enumerable:!1}}),this.j)};q.prototype.toString=function(){var a=r(t(u(this.constructor)))+"@";var b=(this.l()>>>0).toString(16);return a+r(b)};q.prototype.i=["java.lang.Object",0];function v(){}m(v,q);function w(a,b){a.g=b;ra(b,a)}function x(a){sa(a.g)&&(Error.captureStackTrace?Error.captureStackTrace(y(a.g,sa,ta)):y(a.g,sa,ta).stack=Error().stack)}v.prototype.toString=function(){var a=t(u(this.constructor)),b=this.h;return b==null?a:r(a)+": "+r(b)};function ua(a){if(a!=null){var b=a.v;if(b)return b}a instanceof TypeError?b=va():(b=new z,x(b),w(b,Error(b)));b.h=a==null?"null":a.toString();w(b,a);return b}v.prototype.i=["java.lang.Throwable",0];function wa(){}m(wa,v);wa.prototype.i=["java.lang.Exception",0];function A(){}m(A,wa);A.prototype.i=["java.lang.RuntimeException",0];function xa(){}m(xa,A);xa.prototype.i=["java.lang.IndexOutOfBoundsException",0];function pa(a,b){return Object.is(a,b)||a==null&&b==null};function ya(){}m(ya,A);ya.prototype.i=["java.lang.ClassCastException",0];function z(){}m(z,A);z.prototype.i=["java.lang.JsException",0];function za(){}m(za,z);function va(){var a=new za;x(a);w(a,new TypeError(a));return a}za.prototype.i=["java.lang.NullPointerException",0];function Aa(){}m(Aa,xa);function Ba(a){var b=new Aa;b.h=a;x(b);w(b,Error(b));return b}Aa.prototype.i=["java.lang.StringIndexOutOfBoundsException",0];function Ca(){}m(Ca,q);Ca.prototype.i=["java.lang.Number",0];function Da(){}m(Da,Ca);Da.prototype.i=["java.lang.Double",0];function Ea(){}m(Ea,q);Ea.prototype.i=["java.lang.Boolean",0];function y(a,b,c){if(a!=null&&!b(a))throw a=r(t(Fa(a)))+" cannot be cast to "+r(t(u(c))),b=new ya,b.h=a,x(b),w(b,Error(b)),b.g;return a};function Ga(a,b,c){if(Object.prototype.hasOwnProperty.call(a.prototype,b))return a.prototype[b];c=c();return a.prototype[b]=c};var qa=0;function Fa(a){switch(Ha(typeof a)){case "number":return u(Da);case "boolean":return u(Ea);case "string":return u(B);case "function":return u(Ia)}if(a instanceof q)a=u(a.constructor);else if(Array.isArray(a))a=(a=a.G)?u(a.J,a.I):u(q,1);else if(a!=null)a=u(Ja);else throw new TypeError("h");return a};function Ia(){}Ia.prototype.i=["<native function>",1];function Ja(){}m(Ja,q);Ja.prototype.i=["<native object>",0];function Ka(a,b){C(a)?(La(b,a.length),a=a.charCodeAt(b)):a=a.g(b);return a};function Ha(a){if(a==null)throw va().g;return a}function La(a,b){if(a<0||a>=b)throw Ba("i`"+a+"`"+b).g;};function ta(){}function sa(a){return a instanceof Error}ta.prototype.i=["Error",0];function ra(a,b){if(a instanceof Object)try{a.v=b,Object.defineProperties(a,{cause:{get:function(){return b.m&&b.m.g}}})}catch(c){}};function B(){}m(B,q);function r(a){return a==null?"null":a.toString()}function Ma(a,b){var c=b,d=a.length,e;b=Ka(a,(e=c,c=c+1|0,e));var f;if(e=b>=55296&&b<=56319&&c<d)a=f=Ka(a,c),e=a>=56320&&a<=57343;return e?65536+((b&1023)<<10)+(f&1023)|0:b}function C(a){return"string"===typeof a}B.prototype.i=["java.lang.String",0];function Na(){}var Oa,Pa;m(Na,q);function Qa(){Qa=function(){};Pa=new Ra;Oa=new Sa}Na.prototype.i=["java.util.Locale",0];function Ra(){}m(Ra,Na);Ra.prototype.toString=function(){return""};Ra.prototype.i=["java.util.Locale$1",0];function Sa(){}m(Sa,Na);Sa.prototype.toString=function(){return"unknown"};Sa.prototype.i=["java.util.Locale$4",0];function Ta(a,b){this.h=0;this.g=a;this.h=b}m(Ta,q);function u(a,b){var c=b||0;return Ga(a,"$$class/"+c,function(){return new Ta(a,c)})}function t(a){if(a.h!=0){var b=a.g.prototype.i[1]==3?a.g.prototype.i[2]:"L"+r(a.g.prototype.i[0])+";";a=a.h;for(var c="",d=0;d<a;d=d+1|0)c=r(c)+"[";return r(c)+r(b)}return a.g.prototype.i[0]}Ta.prototype.toString=function(){return String(this.h==0&&this.g.prototype.i[1]==1?"interface ":this.h==0&&this.g.prototype.i[1]==3?"":"class ")+r(t(this))};
+Ta.prototype.i=["java.lang.Class",0];function Ua(){}function Va(a){return a instanceof Array}Ua.prototype.i=["Array",0];function Wa(a){var b=a;try{var c;if(c="www.google.com"===Xa(a)){var d=Ya(a);var e=y(d[5],C,B);c="/url"===(e==null?null:decodeURI(e))}if(c){var f=Za(a,"q");b=f?f:Za(a,"url")}}catch(h){var g=ua(h);if(!(g instanceof wa))throw g.g;}return b!=null?b:""};function $a(a,b){var c=ab;return Object.prototype.hasOwnProperty.call(c,a)?c[a]:c[a]=b(a)};var bb;function Ya(a){cb();a=bb.exec(a);for(var b=y([],Va,Ua),c=0;c<=7;c=c+1|0)if(!a||a.length<=c||y(a[c],C,B)==null)b.push(null);else{var d=b,e=y(a[c],C,B);d.push(e)}return b}function Xa(a){a=Ya(a);a=y(a[3],C,B);return a==null?null:decodeURI(a)}function cb(){cb=function(){};bb=RegExp("^(?:([^:/?#.]+):)?(?://(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/#?]|$))?([^?#]+)?(?:\\?([^#]*))?(?:#([\\S\\s]*))?$","")};function Za(a,b){var c=String.fromCodePoint(35);c=a.indexOf(c);c=c<0?a.length:c;a:{var d=0;for(var e=b.length;(d=a.indexOf(b,d))>0&&d<c;){var f=Ma(a,d-1|0);if(f==38||f==63){if((d+e|0)>=a.length)break a;f=Ma(a,d+e|0);if(f==61||f==38||f==35)break a}d=d+(e+1)|0}d=-1}if(d<0)return null;e=d;f=String.fromCodePoint(38);e=a.indexOf(f,e);if(e<0||e>c)e=c;d=d+(b.length+1)|0;b=decodeURIComponent;c=Math.min(a.length,d);d=Math.min(a.length,Math.max(d,e));e=a.length;if(c<0||d>e||d<c)throw Ba("j`"+c+"`"+d+"`"+e).g;
+a=a.substr(c,d-c|0);c=(43).toString(16);d=c.length;La(d,5);a=a.replace(new RegExp("\\u"+r("0000".substr(d))+r(c),"g"),String.fromCharCode(32));return b(a)};function db(a,b,c){for(var d in a)b.call(c,a[d],d,a)};var eb=/&/g,fb=/</g,gb=/>/g,hb=/"/g,ib=/'/g,jb=/\x00/g,kb=/[\x00&<>"']/;/*
+
+ Copyright Google LLC
+ SPDX-License-Identifier: Apache-2.0
+*/
+var lb=globalThis.trustedTypes,mb;function nb(){var a=null;if(!lb)return a;try{var b=function(c){return c};a=lb.createPolicy("goog#html",{createHTML:b,createScript:b,createScriptURL:b})}catch(c){}return a};function D(a){this.g=a}D.prototype.toString=function(){return this.g};var ob=new D("about:invalid#zClosurez");function pb(a){if(a instanceof D)return a.g;throw Error("l");};function qb(a){this.A=a}function E(a){return new qb(function(b){return b.substr(0,a.length+1).toLowerCase()===a+":"})}var rb=[E("data"),E("http"),E("https"),E("mailto"),E("ftp"),new qb(function(a){return/^[^:]*([/?#]|$)/.test(a)})],sb=/^\s*(?!javascript:)(?:[\w+.-]+:|[^:/?#]*(?:[/?#]|$))/i;function tb(a){a instanceof D?a=pb(a):a=sb.test(a)?a:void 0;return a};function ub(a){this.g=a}ub.prototype.toString=function(){return this.g+""};function vb(a,b,c,d){b=tb(b);return b!==void 0?a.open(b,c,d):null};var wb=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if(typeof a==="string")return typeof b!=="string"||b.length!=1?-1:a.indexOf(b,0);for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1};function F(a,b){this.h=b;for(var c=[],d=!0,e=a.length-1;e>=0;e--){var f=a[e]|0;d&&f==b||(c[e]=f,d=!1)}this.g=c}var ab={};function xb(a){return-128<=a&&a<128?$a(a,function(b){return new F([b|0],b<0?-1:0)}):new F([a|0],a<0?-1:0)}function G(a){if(isNaN(a)||!isFinite(a))return H;if(a<0)return I(G(-a));for(var b=[],c=1,d=0;a>=c;d++)b[d]=a/c|0,c*=4294967296;return new F(b,0)}var H=xb(0),J=xb(1),yb=xb(16777216);
+function K(a){if(M(a))return-K(I(a));for(var b=0,c=1,d=0;d<a.g.length;d++){var e=N(a,d);b+=(e>=0?e:4294967296+e)*c;c*=4294967296}return b}k=F.prototype;k.toString=function(a){a=a||10;if(a<2||36<a)throw Error("m`"+a);if(O(this))return"0";if(M(this))return"-"+I(this).toString(a);for(var b=G(Math.pow(a,6)),c=this,d="";;){var e=zb(c,b).g;c=P(c,e.multiply(b));var f=((c.g.length>0?c.g[0]:c.h)>>>0).toString(a);c=e;if(O(c))return f+d;for(;f.length<6;)f="0"+f;d=f+d}};
+function N(a,b){return b<0?0:b<a.g.length?a.g[b]:a.h}function O(a){if(a.h!=0)return!1;for(var b=0;b<a.g.length;b++)if(a.g[b]!=0)return!1;return!0}function M(a){return a.h==-1}k.equals=function(a){if(this.h!=a.h)return!1;for(var b=Math.max(this.g.length,a.g.length),c=0;c<b;c++)if(N(this,c)!=N(a,c))return!1;return!0};k.compare=function(a){a=P(this,a);return M(a)?-1:O(a)?0:1};function I(a){for(var b=a.g.length,c=[],d=0;d<b;d++)c[d]=~a.g[d];return(new F(c,~a.h)).add(J)}
+k.abs=function(){return M(this)?I(this):this};k.add=function(a){for(var b=Math.max(this.g.length,a.g.length),c=[],d=0,e=0;e<=b;e++){var f=d+(N(this,e)&65535)+(N(a,e)&65535),g=(f>>>16)+(N(this,e)>>>16)+(N(a,e)>>>16);d=g>>>16;f&=65535;g&=65535;c[e]=g<<16|f}return new F(c,c[c.length-1]&-2147483648?-1:0)};function P(a,b){return a.add(I(b))}
+k.multiply=function(a){if(O(this)||O(a))return H;if(M(this))return M(a)?I(this).multiply(I(a)):I(I(this).multiply(a));if(M(a))return I(this.multiply(I(a)));if(this.compare(yb)<0&&a.compare(yb)<0)return G(K(this)*K(a));for(var b=this.g.length+a.g.length,c=[],d=0;d<2*b;d++)c[d]=0;for(d=0;d<this.g.length;d++)for(var e=0;e<a.g.length;e++){var f=N(this,d)>>>16,g=N(this,d)&65535,h=N(a,e)>>>16,p=N(a,e)&65535;c[2*d+2*e]+=g*p;Ab(c,2*d+2*e);c[2*d+2*e+1]+=f*p;Ab(c,2*d+2*e+1);c[2*d+2*e+1]+=g*h;Ab(c,2*d+2*e+1);
+c[2*d+2*e+2]+=f*h;Ab(c,2*d+2*e+2)}for(a=0;a<b;a++)c[a]=c[2*a+1]<<16|c[2*a];for(a=b;a<2*b;a++)c[a]=0;return new F(c,0)};function Ab(a,b){for(;(a[b]&65535)!=a[b];)a[b+1]+=a[b]>>>16,a[b]&=65535,b++}function Q(a,b){this.g=a;this.h=b}
+function zb(a,b){if(O(b))throw Error("o");if(O(a))return new Q(H,H);if(M(a))return b=zb(I(a),b),new Q(I(b.g),I(b.h));if(M(b))return b=zb(a,I(b)),new Q(I(b.g),b.h);if(a.g.length>30){if(M(a)||M(b))throw Error("n");for(var c=J,d=b;d.compare(a)<=0;)c=c.shiftLeft(1),d=d.shiftLeft(1);var e=R(c,1),f=R(d,1);d=R(d,2);for(c=R(c,2);!O(d);){var g=f.add(d);g.compare(a)<=0&&(e=e.add(c),f=g);d=R(d,1);c=R(c,1)}b=P(a,e.multiply(b));return new Q(e,b)}for(e=H;a.compare(b)>=0;){c=Math.max(1,Math.floor(K(a)/K(b)));d=
+Math.ceil(Math.log(c)/Math.LN2);d=d<=48?1:Math.pow(2,d-48);f=G(c);for(g=f.multiply(b);M(g)||g.compare(a)>0;)c-=d,f=G(c),g=f.multiply(b);O(f)&&(f=J);e=e.add(f);a=P(a,g)}return new Q(e,a)}k.and=function(a){for(var b=Math.max(this.g.length,a.g.length),c=[],d=0;d<b;d++)c[d]=N(this,d)&N(a,d);return new F(c,this.h&a.h)};k.or=function(a){for(var b=Math.max(this.g.length,a.g.length),c=[],d=0;d<b;d++)c[d]=N(this,d)|N(a,d);return new F(c,this.h|a.h)};
+k.xor=function(a){for(var b=Math.max(this.g.length,a.g.length),c=[],d=0;d<b;d++)c[d]=N(this,d)^N(a,d);return new F(c,this.h^a.h)};k.shiftLeft=function(a){var b=a>>5;a%=32;for(var c=this.g.length+b+(a>0?1:0),d=[],e=0;e<c;e++)d[e]=a>0?N(this,e-b)<<a|N(this,e-b-1)>>>32-a:N(this,e-b);return new F(d,this.h)};function R(a,b){var c=b>>5;b%=32;for(var d=a.g.length-c,e=[],f=0;f<d;f++)e[f]=b>0?N(a,f+c)>>>b|N(a,f+c+1)<<32-b:N(a,f+c);return new F(e,a.h)};P(J.shiftLeft(32),J);P(J.shiftLeft(128),J);function Bb(){Bb=function(){};Cb||Db()};var Eb=!!(la[0]>>16&1),Gb=!!(la[0]>>17&1),Hb=!!(la[0]&32);var Ib=Eb?Gb:ka(610401301),Jb=Eb?Hb:ka(1331761403);var Kb=null,S,Lb=n.navigator;S=Lb?Lb.userAgentData||null:null;function Mb(){var a;if(Kb==null)a:{if(a=n.navigator)if(a=a.userAgent)break a;a=""}else a=Kb;return a}function T(a){return Mb().indexOf(a)!=-1};function Nb(){if(!Ib)return!1;var a=S;return!!a&&a.brands.length>0}function Ob(a){var b={};a.forEach(function(c){b[c[0]]=c[1]});return function(c){return b[c.find(function(d){return d in b})]||""}}function Pb(){for(var a=Mb(),b=RegExp("([A-Z][\\w ]+)/([^\\s]+)\\s*(?:\\((.*?)\\))?","g"),c=[],d;d=b.exec(a);)c.push([d[1],d[2],d[3]||void 0]);Ob(c);return T("Firefox")||T("FxiOS")?(a=c[2])&&a[1]||"":""}function Db(){Nb()?S.brands.find(function(a){return a.brand==="Firefox"}):Pb()};var Cb=Mb().toLowerCase().indexOf("webkit")!=-1&&!T("Edge"),Qb;if(Ib){var Rb=S;Qb=!!Rb&&!!Rb.platform}else Qb=!1;var Sb=Qb?S.platform==="macOS":T("Macintosh");function Tb(a){a&&typeof a.dispose=="function"&&a.dispose()};function U(){this.h=this.h;this.g=this.g}U.prototype.h=!1;U.prototype.dispose=function(){this.h||(this.h=!0,this.m())};U.prototype[Symbol.dispose]=function(){this.dispose()};U.prototype.m=function(){if(this.g)for(;this.g.length;)this.g.shift()()};function Ub(a,b){this.type=a;this.target=b;this.j=!1}Ub.prototype.g=function(){this.j=!0};var Vb=function(){if(!n.addEventListener||!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});try{var c=function(){};n.addEventListener("test",c,b);n.removeEventListener("test",c,b)}catch(d){}return a}();function V(a,b){Ub.call(this,a?a.type:"");this.relatedTarget=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=0;this.key="";this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.state=null;this.pointerId=0;this.pointerType="";this.h=null;a&&this.init(a,b)}oa(V,Ub);
+V.prototype.init=function(a){var b=this.type=a.type,c=a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:null;this.target=a.target||a.srcElement;var d=a.relatedTarget;d||(b=="mouseover"?d=a.fromElement:b=="mouseout"&&(d=a.toElement));this.relatedTarget=d;c?(this.clientX=c.clientX!==void 0?c.clientX:c.pageX,this.clientY=c.clientY!==void 0?c.clientY:c.pageY,this.screenX=c.screenX||0,this.screenY=c.screenY||0):(this.clientX=a.clientX!==void 0?a.clientX:a.pageX,this.clientY=a.clientY!==void 0?
+a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0);this.button=a.button;this.key=a.key||"";this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=a.shiftKey;this.metaKey=a.metaKey;this.pointerId=a.pointerId||0;this.pointerType=a.pointerType;this.state=a.state;this.h=a;a.defaultPrevented&&V.o.g.call(this)};V.prototype.g=function(){V.o.g.call(this);var a=this.h;a.preventDefault?a.preventDefault():a.returnValue=!1};var Wb="closure_listenable_"+(Math.random()*1E6|0);var Xb=0;function Yb(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.h=e;this.key=++Xb;this.g=this.u=!1}function Zb(a){a.g=!0;a.listener=null;a.proxy=null;a.src=null;a.h=null};function $b(a){this.src=a;this.g={};this.h=0}$b.prototype.add=function(a,b,c,d,e){var f=a.toString();a=this.g[f];a||(a=this.g[f]=[],this.h++);var g;a:{for(g=0;g<a.length;++g){var h=a[g];if(!h.g&&h.listener==b&&h.capture==!!d&&h.h==e)break a}g=-1}g>-1?(b=a[g],c||(b.u=!1)):(b=new Yb(b,this.src,f,!!d,e),b.u=c,a.push(b));return b};var ac="closure_lm_"+(Math.random()*1E6|0),bc={},cc=0;function dc(a,b,c,d,e){if(d&&d.once)return ec(a,b,c,d,e);if(Array.isArray(b)){for(var f=0;f<b.length;f++)dc(a,b[f],c,d,e);return null}c=fc(c);return a&&a[Wb]?a.g(b,c,ma(d)?!!d.capture:!!d,e):hc(a,b,c,!1,d,e)}
+function hc(a,b,c,d,e,f){if(!b)throw Error("p");var g=ma(e)?!!e.capture:!!e,h=ic(a);h||(a[ac]=h=new $b(a));c=h.add(b,c,d,g,f);if(c.proxy)return c;d=jc();c.proxy=d;d.src=a;d.listener=c;if(a.addEventListener)Vb||(e=g),e===void 0&&(e=!1),a.addEventListener(b.toString(),d,e);else if(a.attachEvent)a.attachEvent(kc(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("q");cc++;return c}
+function jc(){function a(c){return b.call(a.src,a.listener,c)}var b=lc;return a}function ec(a,b,c,d,e){if(Array.isArray(b)){for(var f=0;f<b.length;f++)ec(a,b[f],c,d,e);return null}c=fc(c);return a&&a[Wb]?a.h(b,c,ma(d)?!!d.capture:!!d,e):hc(a,b,c,!0,d,e)}
+function mc(a){if(typeof a!=="number"&&a&&!a.g){var b=a.src;if(b&&b[Wb])b.j(a);else{var c=a.type,d=a.proxy;b.removeEventListener?b.removeEventListener(c,d,a.capture):b.detachEvent?b.detachEvent(kc(c),d):b.addListener&&b.removeListener&&b.removeListener(d);cc--;if(c=ic(b)){d=a.type;if(d in c.g){var e=c.g[d],f=wb(e,a),g;(g=f>=0)&&Array.prototype.splice.call(e,f,1);g&&(Zb(a),c.g[d].length==0&&(delete c.g[d],c.h--))}c.h==0&&(c.src=null,b[ac]=null)}else Zb(a)}}}
+function kc(a){return a in bc?bc[a]:bc[a]="on"+a}function lc(a,b){if(a.g)a=!0;else{b=new V(b,this);var c=a.listener,d=a.h||a.src;a.u&&mc(a);a=c.call(d,b)}return a}function ic(a){a=a[ac];return a instanceof $b?a:null}var nc="__closure_events_fn_"+(Math.random()*1E9>>>0);function fc(a){if(typeof a==="function")return a;a[nc]||(a[nc]=function(b){return a.handleEvent(b)});return a[nc]};function X(a){U.call(this);this.l=a;this.j={}}oa(X,U);var oc=[];function pc(a){db(a.j,function(b,c){this.j.hasOwnProperty(c)&&mc(b)},a);a.j={}}X.prototype.m=function(){X.o.m.call(this);pc(this)};X.prototype.handleEvent=function(){throw Error("r");};function qc(a,b,c,d){b=b===void 0?!1:b;c=c===void 0?!1:c;d=d===void 0?"editors":d;U.call(this);this.j=a||document.body;this.B=!!b;this.C=!!c;this.D=d;this.l=new X(this);a=na(Tb,this.l);this.h?a():(this.g||(this.g=[]),this.g.push(a));a=this.l;b=this.j;c=this.F;d="click";Array.isArray(d)||(d&&(oc[0]=d.toString()),d=oc);for(var e=0;e<d.length;e++){var f=dc(b,d[e],c||a.handleEvent,!1,a.l||a);if(!f)break;a.j[f.key]=f}}m(qc,U);
+qc.prototype.F=function(a){if(!(a.h.button!=0||Sb&&a.ctrlKey||a.j))for(var b=a.target;b&&b!=this.j;){if(b.tagName&&b.tagName.toLowerCase()=="a"){var c=b.getAttribute("href")||b.getAttributeNS("http://www.w3.org/1999/xlink","href"),d=Wa(c);if(c!=d){a:{b=void 0;Bb();try{b=Xa(d)}catch(tc){b=ua(tc);if(b instanceof A){b=!1;break a}throw b.g;}var e;if(e=b!=null)e=(Qa(),Pa),Qa(),b=pa(e,Oa)?b.toLocaleLowerCase():b.toLowerCase(),e=Ha(b.substr(b.length-11|0,11))===".google.com";b=e}b||(this.C?(c=Wa(d),pa(Ha(c),
+d)&&(d="//www.google.com/url?q="+r(encodeURIComponent(d)),d=r(d)+"&sa=D"),d+="&source="+this.D):d=this.B?c:d);var f=d;e=void 0;c={target:"_blank",noreferrer:!0};d=window;if(f instanceof D)b=f;else{var g=void 0;g=g===void 0?rb:g;b:if(b=typeof f.href!="undefined"?f.href:String(f),g=g===void 0?rb:g,!(b instanceof D)){for(var h=0;h<g.length;++h){var p=g[h];if(p instanceof qb&&p.A(b)){b=new D(b);break b}}b=void 0}b=b||ob}h=self.crossOriginIsolated!==void 0;g="strict-origin-when-cross-origin";window.Request&&
+(g=(new Request("/")).referrerPolicy);p=c.noreferrer;if(h&&p&&g==="unsafe-url")throw Error("s");g=p&&!h;f=c.target||f.target;p=[];var L=[],Fb=!1;for(e in c){var W=c[e];switch(e){case "width":case "height":case "top":case "left":p.push(e+"="+W);break;case "target":break;case "noopener":case "noreferrer":W?L.push(e):(Fb=!0,L.push(e+"=false"));break;case "attributionsrc":p.push(e+(W?"="+W:""));break;default:p.push(e+"="+(W?1:0))}}e=f!==void 0&&!["_blank","_self","_top","_parent",""].includes(f);e=(T("Firefox")||
+T("FxiOS"))&&e;if(Jb&&h&&p.length===0&&L.length>0&&!e&&!Fb)L.length===2&&(L=["noreferrer"]),vb(d,b,f,L[0]);else if(e=p.join(","),(T("iPhone")&&!T("iPod")&&!T("iPad")||T("iPad")||T("iPod"))&&d.navigator&&d.navigator.standalone&&f&&f!="_self")e="A",h=document,e=String(e),h.contentType==="application/xhtml+xml"&&(e=e.toLowerCase()),h=e=h.createElement(e),b=tb(b),b!==void 0&&(h.href=b),e.target=f,g&&(e.rel="noreferrer"),((c=c.attributionsrc)||c==="")&&e.setAttribute("attributionsrc",c),c=document.createEvent("MouseEvent"),
+c.initMouseEvent("click",!0,!0,d,1),e.dispatchEvent(c);else if(g){if(d=vb(d,"",f,e),c=pb(b),d&&(d.opener=null,c===""&&(c="javascript:''"),kb.test(c)&&(c.indexOf("&")!=-1&&(c=c.replace(eb,"&amp;")),c.indexOf("<")!=-1&&(c=c.replace(fb,"&lt;")),c.indexOf(">")!=-1&&(c=c.replace(gb,"&gt;")),c.indexOf('"')!=-1&&(c=c.replace(hb,"&quot;")),c.indexOf("'")!=-1&&(c=c.replace(ib,"&#39;")),c.indexOf("\x00")!=-1&&(c=c.replace(jb,"&#0;"))),c='<meta name="referrer" content="no-referrer"><meta http-equiv="refresh" content="0; url='+
+c+'">',mb===void 0&&(mb=nb()),c=(b=mb)?b.createHTML(c):c,c=new ub(c),(d=d.document)&&d.write)){b=d;e=b.write;if(c instanceof ub)c=c.g;else throw Error("l");e.call(b,c);d.close()}}else(d=vb(d,b,f,e))&&c.noopener&&(d.opener=null),d&&c.noreferrer&&(d.opener=null);a.g();break}}b=b.parentNode}};function rc(a,b,c,d){new qc(a,b===void 0?!1:b,c===void 0?!1:c,d)}
+for(var sc=["DOCS_installLinkReferrerSanitizer"],Y=n,Z;sc.length&&(Z=sc.shift());)sc.length||rc===void 0?Y[Z]&&Y[Z]!==Object.prototype[Z]?Y=Y[Z]:Y=Y[Z]={}:Y[Z]=rc;
+// Google Inc.
+
+//# sourceMappingURL=linkreferrer_binary_linkreferrer_binary_chunk.sourcemap
+</script><script nonce="JM-hOJolgIPhuQ_IO8BQaA">................or":(q=c)==null||q(408);break;default:(n=c)==null||n(400)}t.O(3)}})))};hh.prototype.na=ea(4);w(ih,Y);ih.prototype.wa=function(){this.m=!0;return this};(function(){if(Aj)return jh(/Firefox\/([0-9.]+)/);if(Xj||Yj||Wj)return Yk;if(kh){if(eb()||fb()){var a=jh(/CriOS\/([0-9.]+)/);if(a)return a}return jh(/Chrome\/([0-9.]+)/)}if(bl&&!eb())return jh(/Version\/([0-9.]+)/);if(Zk||$k){if(a=/Version\/(\S+).*Mobile\/(\S+)/.exec(Ua()))return a[1]+"."+a[2]}else if(al)return(a=jh(/Android\s+([0-9.]+)/))?a:jh(/Version\/([0-9.]+)/);return""})();var nh={navigate:2,reload:3,back_forward:4,prerender:5};ph.prototype.toString=function(){var a=qh(this);if(a===null)throw Error("Y`K1cgmc");return a};w(rh,U);w(sh,U);w(th,U);w(uh,U);var xj=function(){if(sj){var a=/Windows NT ([0-9.]+)/;return(a=a.exec(Ua()))?a[1]:"0"}return tj?(a=/1[0|1][_.][0-9_.]+/,(a=a.exec(Ua()))?a[0].replace(/_/g,"."):"10"):vj?(a=/Android\s+([^\);]+)(\)|;)/,(a=a.exec(Ua()))?a[1]:""):Zj||ek||pk?(a=/(?:iPhone|CPU)\s+OS\s+(\S+)/,(a=a.exec(Ua()))?a[1].replace(/_/g,"."):""):""}();w(Jh,U);w(Kh,U);w(Lh,U);w(oi,li);var rj=new zh("high_frequency_builder");Ra(pi,Y);var qi=[];pi.prototype.F=function(){pi.M.F.call(this);si(this)};pi.prototype.handleEvent=function(){throw Error("$");};w(ui,li);var fj=new zh("system_builder");w(zi,Bf);var Bi=new WeakMap;Ra(Ei,cg);u=Ei.prototype;u.Ia=Ci(function(){var a=this.W(),b=this.fa()!="hidden";if(a){var c;b?c=(((wi?"Webkit":xi?"Moz":null)||"")+"visibilitychange").toLowerCase():c="visibilitychange";a=c}else a=null;return a});u.fa=Ci(function(){return yi("hidden",this.h.g)});u.Ja=Ci(function(){return yi("visibilityState",this.h.g)});u.W=function(){return!!this.fa()};u.Ka=function(){var a=this.W()?this.h.g[this.Ja()]:null;a=new zi(!!this.h.g[this.fa()],a);eg(this,a)};u.F=function(){$f(this.m);Ei.M.F.call(this)};w(Fi,Y);Fi.prototype.j=function(){if(this.h.ka()){var a=this.g;a=!!a.h.g[a.fa()];a=this.h.ca(a?102001:102E3,0);this.h.ha(a)}};w(Gi,Y);u=Gi.prototype;u.ha=function(a){var b=this.g;R(a.g,6,b.i);b.j=!0;a=ni(a);b.g.add(a);b=this.h;b.g.g.g.length>=3&&b.h.i();return new yh};u.ca=function(a,b){a=vi(gj(this.g,a),b,this.g.v++);b==1&&(b=this.g,ki(M(a.g,Lh,8)),b.u.add(a));return a};u.ja=function(){return this.g.h};u.la=function(){var a=this.g,b=kj(a,716);jj(a,b);b=ni(b);a.g.add(b);a.B=!0;a.C=!0;a=this.h;ti(a.u,a.h.i,a.h);ti(36E5,a.G,a);this.h.h.i();this.i&&new Fi(this)};u.ma=function(){this.h.j();return nf(Array.from(this.h.i)).then()};
+u.ka=function(){var a=this.g;return a.B&&a.C&&!0};w(Hi,Y);Hi.prototype.i=function(a){this.h=arguments;this.g?this.j=!0:Ii(this)};Hi.prototype.F=function(){Y.prototype.F.call(this);this.g&&(y.clearTimeout(this.g),this.g=null,this.j=!1,this.h=null)};w(Ji,Y);Ji.prototype.j=function(){var a=this;if(this.g.g.g.length!=0&&(!this.m||this.g.j)){var b=ij(this.g),c=this.B.g(b);c&&(qf(c,function(){return void a.i.delete(c)}),this.i.add(c))}};Ji.prototype.G=function(){var a=this.g,b=kj(a,1153);b=ni(b);a.g.add(b);this.h.i()};w(Ki,Y);u=Ki.prototype;u.ha=function(a){a=this.g.ha(a);this.ma();return a};u.ca=function(a,b){return this.g.ca(a,b)};u.ja=function(){return this.g.ja()};u.la=function(){return this.g.la()};u.ma=function(){return this.g.ma()};u.ka=function(){return this.g.ka()};w(Li,U);w(Mi,U);w(Ni,U);w(Oi,U);w(Pi,U);w(Qi,U);w(Ri,U);w(Si,U);w(Ti,U);w(Ui,U);var Vi=y.window?[y.window,y.window.opener,y.window.parent]:[];Xi.prototype.g=function(a){if(this.v&&this.h){var b=M(a,Li,2)||new Li,c=M(a,Ui,5)||new Ui,d=M(a,te,3)||new te;a=Rc(a,bj,1);a=x(a);for(var e=a.next();!e.done;e=a.next())this.i.postMessage({detail:{impression:fd(e.value),session_info:fd(b),session_invariants:fd(c),client_info:fd(d)}});document.dispatchEvent(new CustomEvent("ripple",{detail:{clientX:this.j,clientY:this.m}}))}};Yi.prototype.ya=function(){return new oi};$i.prototype.add=function(a){this.g.push(a)};aj.prototype.add=function(a){ki(M(a.g,Lh,8));var b=wh(cd(a.g,12));this.g[b]=a};w(bj,U);w(cj,U);w(dj,U);lj.prototype.ya=function(){return new ui};Cj.prototype.start=function(){var a=y.DOCS_drawing_load,b=y.DOCS_drawing_decode,c;for(c in a)Gj(this,c);for(var d in b)Fj(this,d);(a=y.DOCS_timing)&&(a=a.ejl-a.sjl)&&Dj(this,29035,a);Dj(this,29031,performance.now()-this.g)};y.DOCS_initPublishImpressionTracker=function(a,b,c){var d=document.querySelectorAll("img[id^='ed.']").length;a=new Bj(a,b,d,c);var e=new Cj(a,d);Pa("DOCS_notifyDrawingLoad",function(g){return Gj(e,g)});Pa("DOCS_notifyDrawingDecode",function(g){return Fj(e,g)});e.start();return e};
+})(this._pubi);
+// Google Inc.
+
+//# sourceMappingURL=publish_binary_core.sourcemap
+DOCS_timing['ejl'] = performance.now(); DOCS_initPublishImpressionTracker( 142.0 ,  1.0 ); DOCS_timing['epr'] = performance.now();</script></body></html>
