@@ -20,6 +20,7 @@ body, #root {
     border-bottom-left-radius: 3px;
     margin: 0px;
     transition: width 1s ease;
+    border-right: 2px solid #e2dddd;
 }
 #sidePanel.responsive {
     min-width: 41px;
@@ -40,6 +41,7 @@ body, #root {
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: scroll;
 }
 
 .banner {
@@ -73,7 +75,6 @@ body, #root {
     display: flex;
     height: 100%;
     flex-wrap: wrap;
-    overflow-y: scroll;
     margin-left: 0px;
     margin-left: 0px;
     padding-top: 16px;
@@ -88,7 +89,7 @@ body, #root {
     min-height: 94px;
     width: 40%;
     min-width: 310px;
-    background-color: #fff;
+    background-color: #ffffff8a;
     padding: 0px 3px 6px 0px;
     margin: 2px ;
     border: 1px solid rgba(138, 165, 42, 0.288);
@@ -100,13 +101,27 @@ body, #root {
 }
 
 p {
-    font-family: Arial ;
+    font-family: Arial;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
     position: relative;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+iframe div.doc-content {
+    max-width: none;
+
+}
+iframe div.doc-content p {
+    font-size:larger !important;
+}
+div.doc-content span {
+    font-size: inherit;
 }
 .no-display:visited {
     color: #e4e4dd;
@@ -560,4 +575,8 @@ tbody.table-entries tr:nth-child(even) {
     100%{
         transform: rotate(360deg);
     }
+}
+
+.no-display {
+    display: none !important;
 }
