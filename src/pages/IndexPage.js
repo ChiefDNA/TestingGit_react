@@ -53,7 +53,7 @@ const IndexPage = () => {
                 <span className={active[5]} onClick={() => setActiveIndex(2)}>Summary</span>
             </div>
             <div className="container">
-                <div className={"intro" +active[0]}>
+                <div className={"intro " +active[0]}>
                     <img id="intro" alt="" src="icon.png" loading="lazy"/>
                     <div className="React-swing">
                         <div className={`swinger ${swingIndex === 0 ? "active" : ""}`}>
@@ -64,7 +64,7 @@ const IndexPage = () => {
                                 making internal communition and report generation easier. 
                             </p>
                         </div>
-                        <div className={`swinger ${swingIndex === 0 ? "active" : ""}`}>
+                        <div className={`swinger ${swingIndex === 1 ? "active" : ""}`}>
                             <h2>TestingGit React</h2>
                             <hr/>
                             <p>
@@ -77,7 +77,7 @@ const IndexPage = () => {
                 <div className={"doc-content " +active[1]}>
                     {htmlContent ? htmlContent : <p> Loading...</p>}
                 </div>
-                <div id="paragraphs " className={active[2]}>
+                <div id="paragraphs" className={active[2]}>
                     <h2>This index file explains and summarieses paragraphs of the above document which is sourced from <a href="https://docs.google.com/document/d/1otNipuD-PJ0DfebQUgoEiLYHUaPlCTCww7WfZbVcZWY/edit?usp=sharing">Document</a></h2>
                     <p> The First paragraph talks about what a Version Control System is and its use in recorvering projects</p>
                     <p>The second paragragh talks about git and diffrentiates it from the centralized control system.</p>
