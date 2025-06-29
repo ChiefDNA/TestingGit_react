@@ -20,6 +20,7 @@ body, #root {
     border-bottom-left-radius: 3px;
     margin: 0px;
     transition: width 1s ease;
+    border-right: 2px solid #e2dddd;
 }
 #sidePanel.responsive {
     min-width: 41px;
@@ -100,7 +101,7 @@ body, #root {
 }
 
 p {
-    font-family: Arial ;
+    font-family: Arial;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -574,4 +575,8 @@ tbody.table-entries tr:nth-child(even) {
     100%{
         transform: rotate(360deg);
     }
+}
+
+.no-display {
+    display: none !important;
 }
