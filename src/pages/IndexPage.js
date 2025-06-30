@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { parseHtmlDocumentToReact } from "../hooks/parseHtmlDocumentToReact";
+import useResponsiveClasses from "../hooks/useResponsiveClasses";
 
 
 const IndexPage = () => {
@@ -34,7 +35,16 @@ const IndexPage = () => {
         return () => clearInterval(interval); // cleanup on unmount
     }, []);
 
+    const responsiveRefs = useRef([]);
 
+    useResponsiveClasses([
+        {
+            elements: responsiveRefs.current.filter(Boolean),
+            className: 'responsive',
+            maxWidth: 600,
+            initial: false
+        }
+    ])
 
 
     return (
@@ -47,14 +57,14 @@ const IndexPage = () => {
                     <h3>From Blending to Unique constructions and management</h3>
                 </div>
             </div>
-            <div className="titles">
+            <div className="titles" ref={(el) => (responsiveRefs.current[0] = el)}>
                 <span className={active[3]} onClick={() => setActiveIndex(0)}>Introduction </span>
                 <span className={active[4]} onClick={() => setActiveIndex(1)}>About Git </span>
                 <span className={active[5]} onClick={() => setActiveIndex(2)}>Summary</span>
             </div>
-            <div className="container">
+            <div className="container" ref={(el) => (responsiveRefs.current[1] = el)}>
                 <div className={"intro " +active[0]}>
-                    <img id="intro" alt="" src="icon.png" loading="lazy"/>
+                    <img id="intro" alt="" src="assets/images/logoBlend.png" loading="lazy"/>
                     <div className="React-swing">
                         <div className={`swinger ${swingIndex === 0 ? "active" : ""}`}>
                             <h2>Tuzimbe Constructions</h2>

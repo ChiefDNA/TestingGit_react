@@ -35,12 +35,14 @@ function AddMaterials({ replacement , user }){
         {
             elements: shortRefs.current.filter(Boolean),
             className: 'short',
-            maxWidth: 600
+            maxWidth: 600,
+            initial: true
         },
         {
             elements: longRefs.current.filter(Boolean),
             className: 'long',
-            maxWidth: 600
+            maxWidth: 600,
+            initial: true
         }
     ]);
 

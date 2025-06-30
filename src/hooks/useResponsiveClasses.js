@@ -5,12 +5,13 @@ export default function useResponsiveClasses(configs =[]){
     useEffect(() => {
 
         const applyResponsiveClasses = () => {
-            configs.forEach(({elements, className, maxWidth }) => {
+            configs.forEach(({elements, className, maxWidth, initial }) => {
                 elements.forEach(el => {
                     if (!el) return;
-                    if(window.outerWidth <+ maxWidth) {
+                    const trigger = (window.outerWidth <= maxWidth)? true : false;
+                    if((trigger&&initial) || (!trigger&&!initial)) {
                         el.classList.remove(className);
-                    } else {
+                    } else if((trigger&&!initial) || (!trigger&&initial)){
                         el.classList.add(className);
                     }
                 });
