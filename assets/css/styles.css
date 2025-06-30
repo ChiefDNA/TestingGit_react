@@ -15,7 +15,7 @@ body, #root {
     min-width: 200px;
     align-content: center;
     height: 100vh;
-    background-color: #00000014;
+    background-color: #ebebeb;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 3px;
     margin: 0px;
@@ -30,7 +30,7 @@ body, #root {
     position: fixed;
     left: 0px;
     background-color: #f1f1f1;
-    z-index: 1;
+    z-index: 42;
 }
 .responsive .links-wrap, .responsive .page-icon {
     width: 100% !important;
@@ -76,7 +76,7 @@ body, #root {
     height: 100%;
     flex-wrap: wrap;
     margin-left: 0px;
-    margin-left: 0px;
+    margin-right: 0px;
     padding-top: 16px;
 }
 #paragraphs h2 {
@@ -91,7 +91,6 @@ body, #root {
     min-width: 310px;
     background-color: #ffffff8a;
     padding: 0px 3px 6px 0px;
-    margin: 2px ;
     border: 1px solid rgba(138, 165, 42, 0.288);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -578,5 +577,5 @@ tbody.table-entries tr:nth-child(even) {
 }
 
 .no-display {
-    display: none !important;
+    display: none;
 }

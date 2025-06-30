@@ -111,6 +111,13 @@ img#landing {
     right: 0;
     z-index: 4;
 }
+.landing .heading h1 {
+    padding: 0px;
+    font-size: 61px;
+    margin: 0;
+    color: #ffffffab;
+    -webkit-text-stroke: 1px #0000006b;
+}
 
 .heading hr {
     margin-top: -8px;
@@ -135,11 +142,13 @@ img#landing {
     top: 5px;
     margin-top: -29px;
     margin-bottom: -1px;
-    z-index: 1;
+    z-index: 10;
     border: 2px solid black;
     border-bottom: none;
 }
-
+.titles.responsive {
+    display: none;
+}
 .landing::before {
     content: "";
     background: radial-gradient(at top left,rgba(235, 235, 235, 0.00) 0%,rgba(235, 235, 235, 0.1) 15%,rgba(235, 235, 235, 0.33) 40%,rgba(235, 235, 235, 0.53) 50%,rgba(235, 235, 235, 0.97) 70%,rgba(235, 235, 235, 1) 100%);
@@ -202,6 +211,14 @@ img#intro {
     background-size: contain;
     background-repeat: no-repeat;
 }
+.responsive img#intro {
+    margin: 0 auto;
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    justify-self: anchor-center;
+    z-index: 2;
+}
 .React-swing {
   position: relative;
   overflow: hidden;
@@ -248,7 +265,7 @@ img#intro {
     padding-left: 3px;
 }
 
-.doc-content::-webkit-scrollbar {
+#paragraphs::-webkit-scrollbar, .doc-content::-webkit-scrollbar {
     display: none;
 }
 
@@ -256,10 +273,93 @@ img#intro {
     display: contents;
 }
 
-div#mainPanel {
+section.section:has(#mainPanel) {
     background-color: #ebebeb;
 }
 
 div#mainPanel::-webkit-scrollbar {
     display: none;
+}
+
+.c2:has(img) .c1:has(img) {
+    text-indent: 0px;
+}
+p.c2.c5:has(+p.c6) .c1 {
+    border-bottom: 1px solid black;
+    justify-self: left;
+}
+p.c2.c5:has(+p.c6) {
+    padding: 0;
+    text-indent: 12px;
+    justify-self: baseline;
+}
+
+
+.responsive .React-swing {
+    justify-self: anchor-center;
+    width: 90%;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 5;
+}
+
+.responsive .intro::before {
+    content: "";
+    position: absolute;
+    background: 
+        linear-gradient(
+            to bottom, 
+            #00000000 0%, 
+            #0808082b 15%, 
+            #00000033 40%, 
+            #00000096 70%, 
+            #000000e0 100%
+        ) 
+        center / cover 
+        no-repeat 
+        scroll
+    ;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container.responsive {
+    padding-top: 0;
+    display: contents;
+}
+
+.responsive .swinger.active {
+    color: #e3e3e3;
+}
+
+.responsive .no-display {
+    display: initial;
+}
+
+.responsive .doc-content {
+    font-size: 63%;
+    background: #ffffff9e !important;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.responsive .c2:has(img) .c1 img {
+    width: 100% !important;
+}
+
+.responsive .c2:has(img) .c1:has(img) {
+    max-width: 95%;
+}
+
+.responsive #paragraphs {
+    padding-top: 0;
+    border-top: 2px solid #121212;
+    max-height: 100vh;
+}
+
+#paragraphs p:last-child {
+    margin-bottom: 100px;
 }
