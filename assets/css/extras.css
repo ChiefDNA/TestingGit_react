@@ -2,7 +2,6 @@
     height: 100vh;
     text-align: left;
     justify-items: center;
-    overflow-y: scroll;
 }
 
 .c10 {
@@ -191,7 +190,18 @@ span.active {
     align-items: center;
     text-align: center;
 }
-
+img#intro {
+    margin: 0;
+    position: relative;
+    width: 40%;
+    margin-left: auto;
+    /* background-image: url(assets/images/logoBlend.png); */
+    background-attachment: scroll;
+    max-height: 419px;
+    max-width: 419px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .React-swing {
   position: relative;
   overflow: hidden;
