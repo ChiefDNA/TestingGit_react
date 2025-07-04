@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { parseHtmlDocumentToReact } from "../hooks/parseHtmlDocumentToReact";
 import useResponsiveClasses from "../hooks/useResponsiveClasses";
+import Skeleton from "react-loading-skeleton";
+import GenerateComponent from "../components/GenrateComponent";
 
 
 const IndexPage = () => {
@@ -8,6 +10,7 @@ const IndexPage = () => {
     const [active, setActive] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [swingIndex, setSwingIndex] = useState(0);
+    const [summary, setSummary] = useState([]);
 
     useEffect(() => {
         fetch("https://docs.google.com/document/d/e/2PACX-1vTbdAkrlsuCnFKA2L0jDodU0wT7F4jkykK03Ak2ZwXXIAIAYQT1nAgGUI1vKCHHcIa8H3zSkdnedy7Z/pub")
@@ -15,6 +18,18 @@ const IndexPage = () => {
         .then(html => {
             const reactElement = parseHtmlDocumentToReact(html);
             setHtmlContent(reactElement);
+        })
+        .catch(error => console.error(error));
+        
+    },[]);
+
+    useEffect(() => {
+        fetch("/assets/content/homepage.json")
+        .then(res => res.json())
+        .then(data => {
+            if (Array.isArray(data.summary)) {
+                setSummary(data.summary);
+            }
         })
         .catch(error => console.error(error));
         
@@ -85,38 +100,30 @@ const IndexPage = () => {
                     </div>
                 </div>
                 <div className={"doc-content " +active[1]}>
-                    {htmlContent ? htmlContent : <p> Loading...</p>}
+                    {htmlContent ? ( htmlContent ) : (
+                    Array.from({length:7}).map((_, idx) => (
+                    <GenerateComponent key={idx} className="c2" props={{style:{width:'80%'}}} tag="p">
+                        <Skeleton count={4} animation="pulse"/>
+                    </GenerateComponent>
+                )))}
                 </div>
                 <div id="paragraphs" className={active[2]}>
-                    <h2>This index file explains and summarieses paragraphs of the above document which is sourced from <a href="https://docs.google.com/document/d/1otNipuD-PJ0DfebQUgoEiLYHUaPlCTCww7WfZbVcZWY/edit?usp=sharing">Document</a></h2>
-                    <p> The First paragraph talks about what a Version Control System is and its use in recorvering projects</p>
-                    <p>The second paragragh talks about git and diffrentiates it from the centralized control system.</p>
-                    <p>What does a git repository cover?! This is what the third paragrapgh talks about</p>
-                    <p> In the fourth paragrph, the use of references to navigate repositories is discussed</p>
-                    <p>
-                        As the fifth paragraph talks about working outside the develop branch, the sixth branch
-                        talks about the internal working of git to work as a version control system.
-                    </p>
-                    <p>
-                        The seventh paragraph tells how the blob changes when ealing with multiple branches.
-                    </p>
-                    <p>
-                        The eighth paragraph shows how to create a branch locally
-                    </p>
-                    <p>
-                        The ninth paragraph talks about the keywork "origin" and it's reference.
-                    </p>
-                    <p>
-                        The tenth paragraph explains what a pull request is and its use to the repo owner
-                    </p>
-                    <p>
-                        The eleventh paragraph talks about 'git rebase' and how it can be problematic. The sub-paragraph further talk about
-                        how to use it and its commands
-                    </p>
-                    <p>
-                        The visiul aids show the internal file structure of the objects used to manage the git system.
-                        As the first image show the emergent objec relations with a single file branch, the second shows the intricate relationship as git groups common files to save space.
-                    </p>
+                    <h2>This section file explains and summarieses paragraphs of the above document which is sourced from <a href="https://docs.google.com/document/d/1otNipuD-PJ0DfebQUgoEiLYHUaPlCTCww7WfZbVcZWY/edit?usp=sharing">Document</a></h2>
+                    {summary.length > 0? (
+                        summary.map((item, idx) => (
+                            <GenerateComponent key={idx}
+                            tag={item.tag}
+                            >
+                                {item.content}
+                            </GenerateComponent>
+                            )
+                        )
+                    ) : (
+                    Array.from({length:3}).map((_, idx) => (
+                    <GenerateComponent key={idx} tag="p">
+                        <Skeleton count={3} />
+                    </GenerateComponent>
+                )))}
                 </div>
             </div>
         </div>

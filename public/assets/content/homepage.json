@@ -1,0 +1,14 @@
+{"summary":[
+         {"tag":  "p", "content": "The First paragraph talks about what a Version Control System is and its use in recorvering projects"},
+         {"tag":  "p", "content": "The second paragragh talks about git and diffrentiates it from the centralized control system."},
+         {"tag":  "p", "content": "What does a git repository cover?! This is what the third paragrapgh talks about"},
+         {"tag":  "p", "content": "In the fourth paragrph, the use of references to navigate repositories is discussed"},
+         {"tag":  "p", "content": "As the fifth paragraph talks about working outside the develop branch, the sixth branch talks about the internal working of git to work as a version control system."},
+         {"tag":  "p", "content": "The seventh paragraph tells how the blob changes when ealing with multiple branches."},
+         {"tag":  "p", "content": "The eighth paragraph shows how to create a branch locally"},
+         {"tag":  "p", "content": "The ninth paragraph talks about the keywork 'origin' and it's reference."},
+         {"tag":  "p", "content": "The tenth paragraph explains what a pull request is and its use to the repo owner."},
+         {"tag":  "p", "content": "The eleventh paragraph talks about 'git rebase' and how it can be problematic. The sub-paragraph further talk about how to use it and its commands"},
+         {"tag":  "p", "content": "The visiul aids show the internal file structure of the objects used to manage the git system. As the first image show the emergent objec relations with a single file branch, the second shows the intricate relationship as git groups common files to save space."}
+    ]
+}

@@ -1,7 +1,6 @@
 {
   "name": "testinggit_react",
   "version": "0.1.0",
-  "homepage":"https://chiefdna.github.io/TestingGit_react",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -10,8 +9,9 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.6.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^0.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-react-app": "^7.0.1",
     "gh-pages": "^6.3.0"
   }
 }

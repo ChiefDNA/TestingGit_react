@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import './App.css';
 import Sidebar from './components/Sidebar';
 import Section from './components/Section';
@@ -9,6 +8,8 @@ import Materials from './pages/Materials';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import AddMaterials from './pages/AddMaterials';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 
 function App() {
@@ -21,8 +22,6 @@ function App() {
     }
   }, []);
 
-  // window.addEventListener('resize', () => responsiveClasses([], '', 0))
-  // responsiveClasses([], '',0)
 
   const handleLogout = () => {
     localStorage.removeItem('TestingGit');
@@ -33,14 +32,16 @@ function App() {
     <Router>
       <Sidebar userRole={user?.role} onLogout={handleLogout}/>
       <Section> 
-        <Routes>
-          <Route path="/" element={<IndexPage />}/>
-          <Route path="/TestingGit_react" element={<IndexPage />}/>
-          <Route path="/Materials" element={<Materials user={user}/>} />
-          <Route path="/Register" element={<Registration replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} />} />
-          <Route path="/Login" element={<Login replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} setUser={setUser} />} />
-          <Route path='/AddMaterials' element={<AddMaterials replacement={replacement} user={user} />} />
-        </Routes>
+        <SkeletonTheme baseColor='#20202046' highlightColor='#444' duration={1.5}>
+          <Routes>
+            <Route path="/" element={<IndexPage />}/>
+            <Route path="/TestingGit_react" element={<IndexPage />}/>
+            <Route path="/Materials" element={<Materials user={user}/>} />
+            <Route path="/Register" element={<Registration replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} />} />
+            <Route path="/Login" element={<Login replacement={replacement} isValidContact={isValidContact}  UserAlert={UserAlert} setUser={setUser} />} />
+            <Route path='/AddMaterials' element={<AddMaterials replacement={replacement} user={user} />} />
+          </Routes>
+        </SkeletonTheme>
       </Section>
       
     </Router>

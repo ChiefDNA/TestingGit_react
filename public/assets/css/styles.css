@@ -577,5 +577,5 @@ tbody.table-entries tr:nth-child(even) {
 }
 
 .no-display {
-    display: none;
+    display: none !important;
 }
